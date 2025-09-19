@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎹 YDP-144 Konser Salonu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px 50px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2e7d32;
+      color: white;
+      cursor: pointer;
+    }
+    .ticket {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎹 YDP-144 Konser Salonu</h1>
+    <p>Bilet almak için adınızı girin:</p>
+    <input type="text" id="nameInput" placeholder="Adınızı yazın">
+    <br>
+    <button onclick="kesBilet()">Bilet Kes</button>
+    <div class="ticket" id="ticket"></div>
+  </div>
+
+  <script>
+    function kesBilet() {
+      const name = document.getElementById("nameInput").value.trim();
+      const ticketDiv = document.getElementById("ticket");
+      if (name === "") {
+        ticketDiv.style.color = "red";
+        ticketDiv.textContent = "Lütfen adınızı yazın!";
+        return;
+      }
+      const ticketNum = Math.floor(1000 + Math.random() * 9000);
+      ticketDiv.style.color = "#1b5e20";
+      ticketDiv.textContent = `🎟 ${name} için 1 bilet kesildi! Bilet No: ${ticketNum}`;
+    }
+  </script>
+</body>
+</html>
